@@ -86,7 +86,7 @@ The class will generate a `main.c` file in the `src/` directory as well as a `Ma
 To use this class to generate a project, you simply need to create an instance of the class and call the `generate_project` method. For example:
 
 ```python
-gen = CProjectGenerator("my_project", "module1 module2", "cmake")
+gen = CProjectGenerator("my_project", "module1,module2", "cmake")
 gen.generate_project()
 ```
 

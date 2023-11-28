@@ -5,11 +5,12 @@ import os
 
 
 class CProjectGenerator:
-    def __init__(self, project_name, modules="", build_system="make"):
+    def __init__(self, project_name, modules="", build_system="make", delimiter=","): 
         assert build_system in ["make", "cmake"]
         self.project_name = project_name
         self.build_system = build_system
         self.modules = modules
+        self.delimiter = delimiter
         # 创建示例源文件和头文件
         self.source_files = {
             f"{project_name}/src/main.c": """#include "stdio.h"
@@ -57,6 +58,11 @@ int main() {
     def __create_modules_files(self):
         if self.modules == "":
             return
+            
+        self.modules = self.modules.split(self.delimiter)
+        self.modules = [module.strip() for module in self.modules]
+        self.modules = [module for module in self.modules if module != ""]
+        
         for module in self.modules:
             prefix = self.get_prefix(module)
             source_path = f"{self.project_name}/src/{module}.c"
