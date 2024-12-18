@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hjimi_tools"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
-    { name = "wenquanshan", email = "wenquanshan@hjimi.com" },
+    { name = "wenquanshan", email = "wenquanshan@sximi.com" },
 ]
 description = """A Project to setup a python project to build
 A Project to generate a c language project to build
