@@ -21,6 +21,12 @@ hjimi_utils 是一个Python工具集合项目（发布包名为 hjimi_tools）�
    - 将收集的文件内容格式化输出为Markdown文档
    - 支持自定义文件扩展名过滤
 
+4. PDF 文件处理器（hjimi_pdf_processor）
+   - PDF 文件分割（按大小、页数、书签）
+   - PDF 文件合并
+   - PDF 文件信息获取
+   - 文件名规范化处理
+
 ## 安装要求
 
 - Python 3.8 或更高版本
@@ -30,6 +36,7 @@ hjimi_utils 是一个Python工具集合项目（发布包名为 hjimi_tools）�
 > 注意：虽然项目目录名为 hjimi_utils，但发布到 PyPI 的包名为 hjimi_tools
 ```bash
 pip install hjimi_tools
+pip install hjimi_pdf_processor  # PDF处理器模块
 ```
 
 ## 使用说明
@@ -103,6 +110,35 @@ collector = FileCollector(
 # 收集文件并生成Markdown文档
 collector.collect()
 collector.generate_markdown("project_files.md")
+```
+
+### PDF 文件处理器
+
+用于处理 PDF 文件的工具集，功能包括：
+- 按指定大小分割 PDF 文件
+- 按页数分割 PDF 文件
+- 按书签分割 PDF 文件（支持一级书签）
+- 合并多个 PDF 文件
+- 获取 PDF 文件信息
+
+```python
+from hjimi_pdf_processor import PDFProcessor
+
+# 获取 PDF 页数
+page_count = PDFProcessor.get_pdf_page_count("document.pdf")
+
+# 按页数分割
+PDFProcessor.split_pdf_by_pages("large_doc.pdf", pages_per_split=10)
+
+# 按大小分割（KB）
+PDFProcessor.split_pdf_by_size("large_doc.pdf", max_size_kb=1024)
+
+# 按书签分割
+PDFProcessor.split_pdf_by_bookmarks("book.pdf")
+
+# 合并 PDF 文件
+pdf_files = ["part1.pdf", "part2.pdf", "part3.pdf"]
+PDFProcessor.merge_pdfs(pdf_files, "merged.pdf")
 ```
 
 ## 许可证

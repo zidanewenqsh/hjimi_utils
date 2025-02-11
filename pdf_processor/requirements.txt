@@ -1,0 +1,4 @@
+setuptools>=42
+wheel
+PyPDF2>=3.0.0
+twine
