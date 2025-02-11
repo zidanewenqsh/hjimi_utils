@@ -2,7 +2,7 @@
 
 import unittest
 from pathlib import Path
-from tools.file_collector import FileCollector
+from hjimi_tools import FileCollector
 
 class TestFileCollector(unittest.TestCase):
     def setUp(self):
