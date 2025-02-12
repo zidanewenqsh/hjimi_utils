@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hjimi_tools"
-version = "0.0.5"
+version = "0.1.0"
 authors = [
     { name = "wenquanshan", email = "wenquanshan@sximi.com" },
 ]
@@ -12,7 +12,7 @@ description = """A Project to setup a python project to build
 A Project to generate a c language project to build
 """
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

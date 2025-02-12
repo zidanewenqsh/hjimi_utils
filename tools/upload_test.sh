@@ -6,10 +6,10 @@ python3 -m build
 echo "Uploading to TestPyPI..."
 if command -v python3 &> /dev/null; then
     # Linux/Mac
-    python3 -m twine upload --repository testpypi dist/*
+    python -m twine upload --repository testpypi dist/*
 else
     # Windows
-    py -m twine upload --repository testpypi dist/*
+    python -m twine upload --repository testpypi dist/*
 fi
 
 echo "Upload to TestPyPI completed!"

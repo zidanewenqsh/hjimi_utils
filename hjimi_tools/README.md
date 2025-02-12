@@ -12,12 +12,12 @@ python --version
 ### Installation Steps
 To install `hjimi_tools`, you can use `pip`, the Python package installer. Open your terminal and execute the following command:
 ```bash
-pip install hjimi_tools
+pip install hjimi-tools
 ```
 This command will download and install the latest version of hjimi_tools and its dependencies from the Python Package Index (PyPI). If you want to install a specific version of hjimi_tools, you can specify the version number like this:
 
 ```bash
-pip install hjimi_tools==<version_number>
+pip install hjimi-tools==<version_number>
 ```
 Replace <version_number> with the actual version you want to install.
 
@@ -34,14 +34,14 @@ This script is a utility for automatically setting up a new Python package struc
 
 ### Parameters
 
-- `package_name`: (str) The name of the package to set up. This is a required argument.
-- `--version`: (str, optional) The version of the package. Defaults to '0.0.1'.
-- `--description`: (str, optional) A brief description of the package. Defaults to 'A small example package'.
-- `--author`: (str, optional) The name of the author. Defaults to 'Example Author'.
-- `--author_email`: (str, optional) The email of the author. Defaults to 'author@example.com'.
-- `--homepage`: (str, optional) The homepage URL of the package. Defaults to 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY'.
-- `--bug_tracker`: (str, optional) The URL for the bug tracker of the package. Defaults to 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY/issues'.
-
+- `-p`, `--package_name`: (str) The name of the package to set up. This is a required argument.
+- `-v`, `--version`: (str, optional) The version of the package. Defaults to '0.0.1'.
+- `-d`, `--description`: (str, optional) A brief description of the package. Defaults to 'A small example package'.
+- `-a`, `--author`: (str, optional) The name of the author. Defaults to 'Example Author'.
+- `-e`, `--author_email`: (str, optional) The email of the author. Defaults to 'author@example.com'.
+- `-u`, `--homepage`: (str, optional) The homepage URL of the package. Defaults to 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY'.
+- `-b`, `--bug_tracker`: (str, optional) The URL for the bug tracker of the package. Defaults to 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY/issues'.
+- `-r`, `--requirements`: (str, optional) List of package requirements. Multiple packages can be specified separated by spaces.
 
 ### Usage
 
@@ -169,3 +169,37 @@ collector = FileCollector(paths=['/path/to/project'], extensions=['.py', '.md', 
 # Collect the files and save their content to a specified Markdown file
 collector.run()
 ```
+
+## License
+
+MIT License
+
+## Contact
+
+- Author: wenquanshan
+- Email: wenquanshan@sximi.com
+- Project Homepage: https://github.com/zidanewenqsh/pdf_processor
+- Issue Tracking: https://github.com/zidanewenqsh/pdf_processor/issues
+
+## Version History
+
+### 0.1.0 (Latest)
+- 添加命令行参数的短格式支持
+  - `-p` 对应 `--package_name`
+  - `-v` 对应 `--version`
+  - `-d` 对应 `--description`
+  - `-a` 对应 `--author`
+  - `-e` 对应 `--author_email`
+  - `-u` 对应 `--homepage`
+  - `-b` 对应 `--bug_tracker`
+  - `-r` 对应 `--requirements`
+- 新增 requirements 参数支持
+  - 支持通过命令行直接指定项目依赖包
+  - 可以同时指定多个依赖包，以空格分隔
+  - 自动将依赖写入 pyproject.toml 和 requirements.txt
+
+### 0.0.5
+- 初始版本发布
+- 支持基本的 Python 包结构生成
+- 支持 C 项目结构生成
+- 支持文件收集器功能
