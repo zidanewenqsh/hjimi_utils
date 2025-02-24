@@ -1,0 +1,14 @@
+{
+    "rules": [
+        {
+            "id": "doxygen_comments",
+            "name": "Use Doxygen Comments",
+            "description": "All classes and functions must be documented using Doxygen-style comments"
+        },
+        {
+            "id": "file_header",
+            "name": "Detailed File Header",
+            "description": "All script files must begin with a comprehensive file header comment"
+        }
+    ]
+}

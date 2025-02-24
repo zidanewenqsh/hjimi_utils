@@ -140,6 +140,72 @@ collector = FileCollector(paths=['/path/to/project'], extensions=['.py', '.md', 
 collector.run()
 ```
 
+## 文件编码转换工具
+
+### 功能特性
+- 支持单个文件/整个目录的编码转换
+- 自动检测源文件编码（支持多编码尝试列表）
+- 保持原始目录结构
+- 支持多种目标编码格式（UTF-8/GBK/GB2312等）
+- 详细的日志记录和错误处理机制
+- 支持文件类型过滤
+
+### 核心方法
+```python
+convert_directory_encoding(
+    src_dir: str,          # 源目录路径
+    dst_dir: str,          # 目标目录路径
+    src_encoding,          # 源编码（支持列表形式尝试多种编码）
+    dst_encoding='utf-8',  # 目标编码（默认UTF-8）
+    extensions: list[str] = None  # 指定处理的后缀名列表
+)
+```
+
+### 使用示例
+```python
+from hjimi_tools import convert_directory_encoding
+
+# 转换整个目录编码
+convert_directory_encoding(
+    src_dir="原始目录",
+    dst_dir="转换后目录",
+    src_encoding=['gb2312', 'gbk'],
+    dst_encoding='utf-8',
+    extensions=[".h", ".cpp", ".txt"]
+)
+```
+
+## 智能文件复制工具
+
+### 功能特点
+- 按文件后缀名过滤复制
+- 保持原始目录结构
+- 自动创建目标目录
+- 保留文件元数据（创建时间、修改时间等）
+- 支持批量操作
+- 兼容Path对象和字符串路径
+
+### 核心方法
+```python
+copy_files_with_extensions(
+    source_dir: Path | str,  # 源目录路径
+    target_dir: Path | str,  # 目标目录路径
+    extensions: List[str]    # 要复制的文件后缀列表
+)
+```
+
+### 使用示例
+```python
+from hjimi_tools import copy_files_with_extensions
+
+# 复制C/C++项目文件
+copy_files_with_extensions(
+    source_dir="/项目/源码",
+    target_dir="/备份/源码",
+    extensions=['.c', '.cpp', '.h']
+)
+```
+
 ## 许可证
 
 MIT 许可证
@@ -153,7 +219,13 @@ MIT 许可证
 
 ## 版本历史
 
-### 0.1.0 (最新)
+### 0.0.5
+- 初始版本发布
+- 支持基本的 Python 包结构生成
+- 支持 C 项目结构生成
+- 支持文件收集器功能
+
+### 0.1.0
 - 添加命令行参数的短格式支持
   - `-p` 对应 `--package_name`
   - `-v` 对应 `--version`
@@ -168,8 +240,17 @@ MIT 许可证
   - 可以同时指定多个依赖包，以空格分隔
   - 自动将依赖写入 pyproject.toml 和 requirements.txt
 
-### 0.0.5
-- 初始版本发布
-- 支持基本的 Python 包结构生成
-- 支持 C 项目结构生成
-- 支持文件收集器功能
+### 0.1.1
+- 新增文件编码转换工具模块
+- 添加智能文件复制工具
+- 增强目录处理异常处理机制
+- 优化跨平台路径兼容性
+- 改进日志记录系统
+- 添加中文文档支持
+
+### 0.1.2 (最新)
+- 重命名 convert_file_encoding 为 convert_file_encoder
+- 修复模块导入问题
+- 改进文档说明
+- 增强代码稳定性
+- 添加 `__version__` 属性用于版本检查
